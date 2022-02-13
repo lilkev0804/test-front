@@ -6,3 +6,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+//Review  : creation d'une classe scss active
+.switchButtonEnable{
+  cursor: pointer;
+}
+.switchButtonDisable{
+  border: red 1px solid;
+   cursor: pointer;
+}
