@@ -1,15 +1,21 @@
+import Doors from "./subComponents/Doors";
 import style from "./VehicleCard.module.scss";
 
-let VehicleCard = (props) => {
+// Fix : passage d'une variable à une constante pour VehicleCard
+const VehicleCard = (props) => {
+  // Review: descruturation de la props ( améliration de la pérénité et lisibilité du code)
+  const {vehicle} = props
   return (
     <div className={style.container}>
       <div>
-        #{props.vehicle.id} - {props.vehicle.make_and_model} (
-        {props.vehicle.color})
+        #{vehicle.id} - {vehicle.make_and_model} (
+        {vehicle.color})
       </div>
-      {props.vehicle.doors < 2 && <div>{props.vehicle.doors} door</div>}
-      {props.vehicle.doors >= 2 && <div>{props.vehicle.doors} doors</div>}
-      <div>{props.vehicle.mileage} miles</div>
+      <div>
+        {/* Review : création d'un components enfants pour gerer le nombres de porte */}
+        <Doors doors={vehicle.doors}></Doors>
+      </div>
+      <div>{vehicle.mileage} miles</div>
     </div>
   );
 };
