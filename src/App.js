@@ -1,4 +1,4 @@
-import VehiculeIndex from "./domains/Vehicles";
+import VehiculeIndex from "./domains/Vehicles/VehiculeIndex";
 
 function App() {
   return (
