@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import VehicleCard from '../../components/VehicleCard/VehicleCard'
-import { getVehicles } from '../../services/vehicles'
+import  getVehicles  from '../../services/vehicles'
 import styles from './VehiclesIndex.module.scss'
 
 const VehiculeIndex = () => {
@@ -33,7 +33,6 @@ const VehiculeIndex = () => {
         </button>
       </div>
       <div className={styles.cardsContainer}>
-        
         {/* Fix : utilisation des filter */}
         {cars.map((car ,i) =>
           order ? (
