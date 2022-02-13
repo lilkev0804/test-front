@@ -1,10 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import VehiculeIndex from "./domains/Vehicles";
 
 function App() {
   return (
-    <div className="App">
-      <VehiculeIndex />
-    </div>
+    <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<VehiculeIndex />}></Route>
+      </Routes>
+    </BrowserRouter>
+   
   );
 }
 

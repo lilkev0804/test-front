@@ -16,6 +16,7 @@ const VehiculeIndex = () => {
   }, [])
 
 
+
   return cars.length === 0 ? (
     <>loading</>
   ) : (
@@ -36,9 +37,9 @@ const VehiculeIndex = () => {
         {/* Fix : utilisation des filter */}
         {cars.map((car ,i) =>
           order ? (
-            <VehicleCard key={i} vehicle={car}></VehicleCard>
+            <VehicleCard key={i} vehicle={car} color={car.color}></VehicleCard>
           ) : car.color === 'Black' || car.color === 'White' ? (
-            <VehicleCard key={i} vehicle={car}></VehicleCard>
+            <VehicleCard key={i} vehicle={car} color={car.color}></VehicleCard>
           ) : null,
         )}
       </div>
