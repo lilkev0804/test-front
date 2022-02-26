@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { ToggleBlackWhite } from '../../store/Countext'
-export default function ManageBar({ cars, handleSubmit }) {
+export default function ManageBar({ cars, handleSubmit, handleReset }) {
   const toggleBlackWhite = useContext(ToggleBlackWhite)
   const [order, setOrder] = useState(false)
   const [modal, setModal] = useState(false)
   const [searchValue, setSearchValue] = useState({})
   const [request, setRequest] = useState([])
+  const [filterIsActive, setFilterIsActive] = useState(false)
   const filterType = (car, type) => {
     if (type === 'color') {
       return car.color
@@ -54,8 +55,18 @@ export default function ManageBar({ cars, handleSubmit }) {
   }
 
   const subElement = () => {
+    setFilterIsActive(true)
     setModal(!modal)
     return handleSubmit(searchValue, request)
+  }
+
+  const manageReset = () => {
+    if (filterIsActive) {
+      setFilterIsActive(!filterIsActive)
+    }
+    setRequest([])
+    setSearchValue({})
+    return handleReset()
   }
   return (
     <div className="actionsContainer">
@@ -74,6 +85,7 @@ export default function ManageBar({ cars, handleSubmit }) {
         <button id="btnFilter" onClick={() => handleModal()}>
           {modal ? 'X' : 'Filter'}
         </button>
+        {filterIsActive && <button onClick={() => manageReset()}>Reset</button>}
         {modal && (
           <div className="containerFilter">
             <div className="formgroup">
@@ -95,7 +107,7 @@ export default function ManageBar({ cars, handleSubmit }) {
                 onChange={(e) => {
                   setSearchValue({
                     ...searchValue,
-                    doors: e.target.value,
+                    doors: parseInt(e.target.value),
                   })
                   handleChange('doors')
                 }}

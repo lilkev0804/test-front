@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function NavBar() {
+export default function NavBar({ handleSubmit }) {
+  const [value, setValue] = useState('')
   return (
     <nav className="navbarContainer">
       <div className="navlinkContainer">
@@ -18,8 +19,12 @@ export default function NavBar() {
             className="input searchCarInput"
             type="text"
             placeholder="Rechercher"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
           ></input>
-          <button className="searchBarBtn">GO</button>
+          <button onClick={() => handleSubmit(value)} className="searchBarBtn">
+            GO
+          </button>
         </div>
       </div>
     </nav>

@@ -5,9 +5,11 @@
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-//Review  : creation d'une classe scss active
+
 .switchButtonEnable {
   cursor: pointer;
 }

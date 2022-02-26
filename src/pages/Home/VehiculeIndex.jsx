@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useState, Children } from 'react'
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+  Children,
+  useMemo,
+} from 'react'
 import Loading from '../../components/loading/Loading'
 import ManageBar from '../../components/manageBar/ManageBar'
 import NavBar from '../../components/navBar/NavBar'
@@ -9,7 +15,7 @@ const VehiculeIndex = () => {
   const [cars, setCars] = useState([])
   const [toggleColor, setToggleColor] = useState(true)
   const [textBtnToggle, setTextBtnToggle] = useState('Only black & white')
-  // const [modal, setModal] = useState(false)
+  const [orginalCars, setOrignalsCars] = useState()
   useEffect(() => {
     const fetchCars = async () => {
       setCars(await getVehicles())
@@ -32,22 +38,54 @@ const VehiculeIndex = () => {
     setToggleColor(!toggleColor)
   }, [toggleColor])
 
-  const handleSubmit = (data, numberRequest) => {
-    if (numberRequest.length === 1) {
+  const handleSubmit = (data, numberRequest, word) => {
+    setOrignalsCars(cars)
+    if (word) {
+      console.log(word)
       const newArray = []
       cars.map(
         (car) =>
-          car[numberRequest[0]] === data[numberRequest[0]] &&
+          car.make_and_model.toLowerCase().includes(data.toLowerCase()) &&
           newArray.push(car),
       )
       setCars(newArray)
+    } else {
+      if (numberRequest.length === 1) {
+        const newArray = []
+        cars.map(
+          (car) =>
+            car[numberRequest[0]] === data[numberRequest[0]] &&
+            newArray.push(car),
+        )
+        setCars(newArray)
+      }
+      if (numberRequest.length === 2) {
+        const newArray = []
+        cars.map(
+          (car) =>
+            car[numberRequest[0]] === data[numberRequest[0]] &&
+            car[numberRequest[1]] === data[numberRequest[1]] &&
+            newArray.push(car),
+        )
+        setCars(newArray)
+      }
+      if (numberRequest.length === 3) {
+        const newArray = []
+        cars.map(
+          (car) =>
+            car[numberRequest[0]] === data[numberRequest[0]] &&
+            car[numberRequest[1]] === data[numberRequest[1]] &&
+            car[numberRequest[2]] === data[numberRequest[2]] &&
+            newArray.push(car),
+        )
+        setCars(newArray)
+      }
+      if (numberRequest.length === 4) {
+      }
     }
-    if (numberRequest.length === 2) {
-    }
-    if (numberRequest.length === 3) {
-    }
-    if (numberRequest.length === 4) {
-    }
+  }
+  const handleReset = () => {
+    setCars(orginalCars)
   }
 
   return cars.length === 0 ? (
@@ -56,9 +94,10 @@ const VehiculeIndex = () => {
     <ToggleBlackWhite.Provider
       value={{ toggleBW, refresh, textBtn: textBtnToggle }}
     >
-      <NavBar />
+      <NavBar handleSubmit={(data) => handleSubmit(data, null, 'words')} />
       <div className="containerPage">
         <ManageBar
+          handleReset={() => handleReset()}
           cars={cars}
           handleSubmit={(data, e) => handleSubmit(data, e)}
         />
