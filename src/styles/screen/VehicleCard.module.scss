@@ -1,0 +1,24 @@
+.container {
+  flex: 0 0 30%;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid red;
+  position: relative;
+  .buttonOpen {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+  }
+}
+.headerCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.badgeColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}

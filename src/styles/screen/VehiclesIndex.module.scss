@@ -1,5 +1,6 @@
 .actionsContainer {
   margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 .cardsContainer {
   display: flex;
@@ -7,10 +8,10 @@
   justify-content: space-between;
 }
 //Review  : creation d'une classe scss active
-.switchButtonEnable{
+.switchButtonEnable {
   cursor: pointer;
 }
-.switchButtonDisable{
+.switchButtonDisable {
   border: red 1px solid;
-   cursor: pointer;
+  cursor: pointer;
 }

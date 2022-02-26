@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Doors(props) {
+export default function Doors({ doors }) {
   return (
     <div>
-      {props.doors} door{props.doors >= 2 ? 's' : null}
+      {doors} door{doors >= 2 && 's'}
     </div>
   )
 }

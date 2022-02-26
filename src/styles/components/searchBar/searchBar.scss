@@ -1,0 +1,22 @@
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.searchCarInput {
+  min-width: 200px;
+  height: 1.2rem;
+  border-top-left-radius: $borderaduis-5;
+  border-bottom-left-radius: $borderaduis-5;
+}
+.searchBarBtn {
+  height: 1.92rem;
+  border-top-right-radius: $borderaduis-5;
+  border-bottom-right-radius: $borderaduis-5;
+  background-color: $primary;
+  border: 1px solid $primary;
+}
+.searchBarBtn:focus {
+  border: 1px solid white;
+}

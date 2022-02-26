@@ -1,0 +1,10 @@
+@import "variables.scss";
+@import "reset.scss";
+@import "./screen/General.scss";
+@import "./screen/Navbar.module.scss";
+@import "./screen/VehicleCard.module.scss";
+@import "./screen/VehiclesIndex.module.scss";
+
+// components
+
+@import "./components/index.scss";
