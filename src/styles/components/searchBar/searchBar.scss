@@ -16,7 +16,9 @@
   border-bottom-right-radius: $borderaduis-5;
   background-color: $primary;
   border: 1px solid $primary;
-}
-.searchBarBtn:focus {
-  border: 1px solid white;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+    color: $primary;
+  }
 }

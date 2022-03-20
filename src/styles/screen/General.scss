@@ -1,7 +1,7 @@
 .containerPage {
   width: 100%;
   max-width: 1200px;
-  margin: 3rem auto 0 auto;
+  margin: 5rem auto 0 auto;
 }
 .modal {
   position: fixed;
@@ -14,4 +14,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.alertMessage {
+  color: $danger;
+}
+.btn {
+  border-left: 5px $orange solid;
+  background-color: $bgColor;
+  border: 1px solid $bgColor;
+  padding: 0.5rem 0.7rem;
+  transition: all 0.8s ease-in-out;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.97);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: white;
+    span {
+      color: $primary;
+    }
+  }
+}
+.btn-green {
+  background-color: $primary;
+  color: white;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+.btn-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  color: white;
 }

@@ -1,6 +1,9 @@
-.actionsContainer {
-  margin-bottom: 1rem;
-  margin-top: 3rem;
+.containerCards {
+  margin: 6em auto 1rem auto;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
 }
 .cardsContainer {
   display: flex;
@@ -9,7 +12,6 @@
   align-items: center;
   width: 100%;
 }
-
 .switchButtonEnable {
   cursor: pointer;
 }

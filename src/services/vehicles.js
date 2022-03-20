@@ -1,10 +1,12 @@
-import axios from 'axios'
+import axios from "axios";
 
-const getVehicles = async () => {
+const getVehicles = async (random) => {
   const vehicules = await axios.get(
-    'https://random-data-api.com/api/vehicle/random_vehicle?size=50',
-  )
-  return vehicules.status === 200 ? vehicules.data : []
-}
+    random
+      ? "https://random-data-api.com/api/vehicle/random_vehicle"
+      : "https://random-data-api.com/api/vehicle/random_vehicle?size=50"
+  );
+  return vehicules.status === 200 ? vehicules.data : [];
+};
 
-export default getVehicles
+export default getVehicles;

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import SearchBar from "../searchBar/SearchBar";
 
 export default function NavBar({ handleSubmit }) {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
   return (
     <nav className="navbarContainer">
       <div className="navlinkContainer">
@@ -10,23 +11,13 @@ export default function NavBar({ handleSubmit }) {
           <Link className="navlink" to="/">
             Home
           </Link>
-          <Link className="navlink" to="/contact">
-            Contact
-          </Link>
         </div>
-        <div className="searchBar">
-          <input
-            className="input searchCarInput"
-            type="text"
-            placeholder="Rechercher"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          ></input>
-          <button onClick={() => handleSubmit(value)} className="searchBarBtn">
-            GO
-          </button>
-        </div>
+        <SearchBar
+          value={value}
+          onChange={(e) => setValue(e)}
+          handleSubmit={(e) => handleSubmit(e)}
+        />
       </div>
     </nav>
-  )
+  );
 }
